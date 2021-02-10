@@ -64,12 +64,12 @@ function renderUsers(users) {
             .append(`
     <tr>
         <td>${user.username}</td>
-        <td>${user.password}</td>
+        <td></td>
         <td>${user.first}</td>
         <td>${user.last}</td>
         <td>${user.role}</td>
         <td>
-            <span>
+            <span class="pull-right">
                 <i class="fa-2x fa fa-times wbdv-remove" id="${i}"></i>
                 <i class="fa-2x fa fa-pencil wbdv-edit" id="${user._id}"></i>
             
