@@ -3,7 +3,8 @@ package com.rossfrank.a1.models;
 
 public class Widget {
     private String name;
-    private Integer id;
+    private String id;
+    private String topicId;
     private String type;
     private Integer widgetOrder;
     private String text;
@@ -15,26 +16,10 @@ public class Widget {
     private String style;
     private String value;
 
-    public Widget(String name, Integer id, String type, Integer widgetOrder,
-                  String text, String src, Integer size, Integer height,
-                  Integer width, String cssClass, String style, String value) {
+    public Widget(String name, String id, String topicId, String type, Integer widgetOrder, String text) {
         this.name = name;
         this.id = id;
-        this.type = type;
-        this.widgetOrder = widgetOrder;
-        this.text = text;
-        this.src = src;
-        this.size = size;
-        this.height = height;
-        this.width = width;
-        this.cssClass = cssClass;
-        this.style = style;
-        this.value = value;
-    }
-
-    public Widget(String name, Integer id, String type, Integer widgetOrder, String text) {
-        this.name = name;
-        this.id = id;
+        this.topicId = topicId;
         this.type = type;
         this.widgetOrder = widgetOrder;
         this.text = text;
@@ -48,11 +33,19 @@ public class Widget {
         this.name = name;
     }
 
-    public Integer getId() {
+    public String getTopicId(){
+        return topicId;
+    }
+
+    public void setTopicId(String topicId){
+        this.topicId = topicId;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
