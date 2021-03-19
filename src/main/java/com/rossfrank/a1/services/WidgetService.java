@@ -11,18 +11,20 @@ import java.util.List;
 public class WidgetService {
     private List<Widget> widgets = new ArrayList<>();
     {
-        Widget w1 = new Widget("123l", "123", "1l", "HEADING", 1, "Welcome to Widgets");
-        Widget w2 = new Widget("234l", "234", "1l", "PARAGRAPH", 1, "This is a paragraph");
-        Widget w3 = new Widget("345l", "345", "2l", "HEADING", 2, "Welcome to WebDev");
-        Widget w4 = new Widget("456l", "456", "2l", "PARAGRAPH", 1, "Lorem ipsum");
+        Widget w1 = new Widget("123l", 123l, "1l", "HEADING", 1, "Welcome to Widgets");
+        Widget w2 = new Widget("234l", 234l, "1l", "PARAGRAPH", 1, "This is a paragraph");
+        Widget w3 = new Widget("345l", 345l, "2l", "HEADING", 2, "Welcome to WebDev");
+        Widget w4 = new Widget("456l", 456l, "2l", "PARAGRAPH", 1, "Lorem ipsum");
         widgets.add(w1);
         widgets.add(w2);
         widgets.add(w3);
         widgets.add(w4);
     }
 
-    public Widget createWidget(String id, Widget widget) {
-        widget.setTopicId(id);
+    public Widget createWidget(String tid, Widget widget) {
+        widget.setTopicId(tid);
+        Long id = (new Date()).getTime();
+        widget.setId(id);
         widgets.add(widget);
         return widget;
     }
