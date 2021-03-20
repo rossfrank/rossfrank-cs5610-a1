@@ -11,10 +11,12 @@ import java.util.List;
 public class WidgetService {
     private List<Widget> widgets = new ArrayList<>();
     {
-        Widget w1 = new Widget("123l", 123l, "1l", "HEADING", 1, "Welcome to Widgets");
-        Widget w2 = new Widget("234l", 234l, "1l", "PARAGRAPH", 1, "This is a paragraph");
-        Widget w3 = new Widget("345l", 345l, "2l", "HEADING", 2, "Welcome to WebDev");
-        Widget w4 = new Widget("456l", 456l, "2l", "PARAGRAPH", 1, "Lorem ipsum");
+        Widget w1 = new Widget("123l", 123L, "604844d9104b980017201a5e", "HEADING", 1, "Welcome to Widgets");
+        Widget w2 = new Widget("234l", 234L, "604844d9104b980017201a5e", "PARAGRAPH", 1, "This is a paragraph");
+        Widget w3 = new Widget("345l", 345L, "2", "HEADING", 2, "Welcome to WebDev");
+        Widget w4 = new Widget("456l", 456L, "2", "PARAGRAPH", 1, "Lorem ipsum");
+        w1.setSize(1);
+        w3.setSize(1);
         widgets.add(w1);
         widgets.add(w2);
         widgets.add(w3);
@@ -41,7 +43,7 @@ public class WidgetService {
         }
         return ws;
     }
-    public Widget findWidgetById(String id) {
+    public Widget findWidgetById(Long id) {
         for(Widget w: widgets) {
             if(w.getId().equals(id)) {
                 return w;
@@ -50,7 +52,7 @@ public class WidgetService {
         return null;
     }
 
-    public Integer updateWidget(String id, Widget newWidget) {
+    public Integer updateWidget(Long id, Widget newWidget) {
         for(int i=0; i<widgets.size(); i++) {
             Widget w = widgets.get(i);
             if(w.getId().equals(id)) {
@@ -60,7 +62,7 @@ public class WidgetService {
         }
         return -1;
     }
-    public Integer deleteWidget(String id) {
+    public Integer deleteWidget(Long id) {
         int index = -1;
         for(int i=0; i<widgets.size(); i++) {
             Widget w = widgets.get(i);
