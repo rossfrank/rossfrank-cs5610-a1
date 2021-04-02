@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 public class WidgetController {
-
     @Autowired
     WidgetService service;// = new WidgetService();
 
@@ -19,16 +18,16 @@ public class WidgetController {
             @PathVariable("tid") String topicId,
             @RequestBody Widget widget) {
         widget.setTopicId(topicId);
-        return service.createWidget(topicId, widget);
+        return service.createWidgetForTopic(widget);
     }
-
+    
     @GetMapping("/api/topics/{tid}/widgets")
     public List<Widget> findWidgetsForTopic(
             @PathVariable("tid") String topicId
     ) {
         return service.findWidgetsForTopic(topicId);
     }
-
+    
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
         return service.findAllWidgets();

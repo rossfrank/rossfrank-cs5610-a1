@@ -1,28 +1,38 @@
 package com.rossfrank.a1.models;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name="widgets")
 public class Widget {
-    private String name;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String topicId;
+    
     private String type;
-    private Integer widgetOrder;
-    private String text;
-    private String src;
     private Integer size;
-    private Integer height;
     private Integer width;
-    private String cssClass;
-    private String style;
-    private String value;
+    private Integer height;
+    private String text;
+    private String name;
+    private Boolean ordered;
+    private String src;
 
-    public Widget(String name, Long id, String topicId, String type, Integer widgetOrder, String text) {
-        this.name = name;
-        this.id = id;
-        this.topicId = topicId;
-        this.type = type;
-        this.widgetOrder = widgetOrder;
-        this.text = text;
+    public Boolean getOrdered() {
+        return ordered;
+    }
+
+    public void setOrdered(Boolean ordered) {
+        this.ordered = ordered;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
     }
 
     public String getName() {
@@ -33,13 +43,31 @@ public class Widget {
         this.name = name;
     }
 
-    public String getTopicId(){
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public String getTopicId() {
         return topicId;
     }
 
-    public void setTopicId(String topicId){
+    public void setTopicId(String topicId) {
         this.topicId = topicId;
     }
+
+    private String topicId;
 
     public Long getId() {
         return id;
@@ -57,12 +85,12 @@ public class Widget {
         this.type = type;
     }
 
-    public Integer getWidgetOrder() {
-        return widgetOrder;
+    public Integer getSize() {
+        return size;
     }
 
-    public void setWidgetOrder(Integer widgetOrder) {
-        this.widgetOrder = widgetOrder;
+    public void setSize(Integer size) {
+        this.size = size;
     }
 
     public String getText() {
@@ -73,59 +101,46 @@ public class Widget {
         this.text = text;
     }
 
-    public String getSrc() {
-        return src;
+    public Widget() {
     }
 
-    public void setSrc(String src) {
-        this.src = src;
-    }
-
-    public Integer getSize() {
-        return size;
-    }
-
-    public void setSize(Integer size) {
+    public Widget(Long id, String topicId, String type, Integer size, String text) {
+        this.id = id;
+        this.topicId = topicId;
+        this.type = type;
         this.size = size;
-    }
-
-    public Integer getHeight() {
-        return height;
-    }
-
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-
-    public Integer getWidth() {
-        return width;
-    }
-
-    public void setWidth(Integer width) {
-        this.width = width;
-    }
-
-    public String getCssClass() {
-        return cssClass;
-    }
-
-    public void setCssClass(String cssClass) {
-        this.cssClass = cssClass;
-    }
-
-    public String getStyle() {
-        return style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
+        this.text = text;
     }
 }
+
+/*
+    create table widget (
+       id bigint not null,
+        height integer,
+        size integer,
+        text varchar(255),
+        topic_id varchar(255),
+        type varchar(255),
+        width integer,
+        primary key (id)
+    ) engine=InnoDB
+ */
+
+/*
+create table widgets (
+       id bigint not null auto_increment,
+        height integer,
+        size integer,
+        text varchar(255),
+        topic_id varchar(255),
+        type varchar(255),
+        width integer,
+        primary key (id)
+    ) engine=InnoDB
+ */
+
+/*
+    alter table widgets 
+       add column name varchar(255)
+
+ */
